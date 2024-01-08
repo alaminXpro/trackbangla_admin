@@ -66,6 +66,6 @@ class MyApp1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ab = context.watch<AdminBloc>();
-    return ab.isSignedIn == false ? SignInPage() : SignInPage();
+    return ab.isSignedIn == false ? SignInPage() : HomePage();
   }
 }
