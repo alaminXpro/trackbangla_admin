@@ -27,11 +27,11 @@ class _SignInPageState extends State<SignInPage> {
       formKey.currentState!.validate();
       if(password == Config().testerPassword){
         await ab.setSignInForTesting()
-        .then((value) => nextScreenReplace(context, SignInPage()));
+        .then((value) => nextScreenReplace(context, HomePage()));
 
       }else{
         await ab.setSignIn()
-        .then((value) => nextScreenReplace(context, SignInPage()));
+        .then((value) => nextScreenReplace(context, HomePage()));
       }
     }
 
