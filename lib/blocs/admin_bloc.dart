@@ -1,4 +1,6 @@
 
+import 'package:flutter/material.dart';
+
 import '/utils/toast.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
@@ -13,14 +15,15 @@ class AdminBloc extends ChangeNotifier {
   bool _testing = false;
 
   List _states = [];
+  
+  //var context;
   List get states => _states;
   
-
   AdminBloc() {
     checkSignIn();
     getAdminPass();
   }
-
+  //AdminBloc.namedConstructor(this.context);
   
   String get adminPass => _adminPass;
   String get userType => _userType;

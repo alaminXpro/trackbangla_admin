@@ -4,7 +4,7 @@ import '/blocs/admin_bloc.dart';
 import '/config/config.dart';
 // import '/pages/admin.dart';
 // import '/pages/blogs.dart';
-// import '/pages/data_info.dart';
+import '/pages/data_info.dart';
 // import '/pages/featured.dart';
 // import '/pages/notifications.dart';
 // import '/pages/places.dart';
@@ -15,7 +15,7 @@ import '/pages/sign_in.dart';
 // import '/pages/upload_place.dart';
 // import '/pages/users.dart';
 import '/utils/next_screen.dart';
-import '/widgets/cover_widget.dart';
+// import '/widgets/cover_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:provider/provider.dart';
@@ -220,8 +220,7 @@ class _HomePageState extends State<HomePage>
                     // Tab(child: tab(titles[10], icons[10])),
                   ],
                   contents: <Widget>[
-                    Text("Dashboard"),
-                    // DataInfoPage(),
+                    DataInfoPage(),
                     // CoverWidget(widget: PlacesPage()),
                     // CoverWidget(widget: FeaturedPlaces()),
                     // CoverWidget(widget: UploadPlace()),
