@@ -23,13 +23,19 @@ showNotificationPreview(context, title, description) {
             SizedBox(
               height: 5,
             ),
-            // Html(
-            //         data: '''$description''',
-            //         defaultTextStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-            //         onLinkTap: (url){
-            //           launch(url);
-            //         },
-            //       ),
+            Html(
+                    data: '''$description''',
+                    style: {
+                      "html": Style(
+                        fontSize: FontSize(16.0),
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black,
+                      ),
+                    },
+                    onLinkTap: (url, _, __, ___){
+                      launchUrl(url as Uri);
+                    },
+                  ),
             SizedBox(
               height: 30,
             ),

@@ -27,19 +27,27 @@ void openDialog(context, title, message) {
               height: 30,
             ),
             Center(
-              // child: FlatButton(
-              //   shape: RoundedRectangleBorder(
-              //       borderRadius: BorderRadius.circular(25)),
-              //   color: Colors.deepPurpleAccent,
-              //   child: Text(
-              //     'Okay',
-              //     style: TextStyle(
-              //         color: Colors.white,
-              //         fontSize: 16,
-              //         fontWeight: FontWeight.w600),
-              //   ),
-              //   onPressed: () => Navigator.pop(context),
-              // ),
+              child: TextButton(
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                  ),
+                  backgroundColor: MaterialStateProperty.all<Color>(
+                    Colors.deepPurpleAccent,
+                  ),
+                ),
+                child: Text(
+                  'Okay',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                onPressed: () => Navigator.pop(context),
+              ),
             ),
           ],
         );
