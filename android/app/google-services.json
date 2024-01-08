@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "776664567368",
+    "project_id": "trackbangla-faef2",
+    "storage_bucket": "trackbangla-faef2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:776664567368:android:55b918dd493320ef9a127d",
+        "android_client_info": {
+          "package_name": "com.example.trackbangla"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "776664567368-836p02oc6aculv7949kfolp3rbmqoe1r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.trackbangla",
+            "certificate_hash": "9c56d84f84b1b101e477e77e1baf8bfc936609ff"
+          }
+        },
+        {
+          "client_id": "776664567368-56v1nf3dhbaak62uhmnfh4a3peculfso.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHvidbno8-bcts8xSCaDSFrio26KJTLY4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "776664567368-56v1nf3dhbaak62uhmnfh4a3peculfso.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "776664567368-3714oq31ibnu84bnh2jftmef1710teif.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.trackbangla.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:776664567368:android:8d865e1c7408002f9a127d",
+        "android_client_info": {
+          "package_name": "com.example.trackbangla_admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "776664567368-56v1nf3dhbaak62uhmnfh4a3peculfso.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHvidbno8-bcts8xSCaDSFrio26KJTLY4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "776664567368-56v1nf3dhbaak62uhmnfh4a3peculfso.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "776664567368-3714oq31ibnu84bnh2jftmef1710teif.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.trackbangla.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
