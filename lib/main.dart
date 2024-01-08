@@ -1,4 +1,5 @@
-
+import 'package:firebase_core/firebase_core.dart';
+import 'package:trackbangla_admin/firebase_options.dart';
 import '/pages/home.dart';
 import '/pages/sign_in.dart';
 import 'package:flutter/material.dart';
@@ -7,9 +8,12 @@ import '/blocs/admin_bloc.dart';
 import '/blocs/notification_bloc.dart';
 import '/blocs/comment_bloc.dart';
 
-void main(){
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MyApp());
-
 }
 
 class MyApp extends StatelessWidget {
@@ -62,6 +66,6 @@ class MyApp1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ab = context.watch<AdminBloc>();
-    return ab.isSignedIn == false ? SignInPage() : HomePage();
+    return ab.isSignedIn == false ? SignInPage() : SignInPage();
   }
 }
