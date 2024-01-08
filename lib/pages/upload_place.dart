@@ -92,7 +92,7 @@ class _UploadPlaceState extends State<UploadPlace> {
     else{
       if (formKey.currentState!.validate()) {
       formKey.currentState!.save();
-      if(paths.length == 0){
+      if(paths.isEmpty){
         openSnacbar(scaffoldKey, 'Paths List can not be empty');
       } else {
         if (ab.userType == 'tester') {

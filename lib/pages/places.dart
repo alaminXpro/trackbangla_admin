@@ -1,7 +1,7 @@
 import '/blocs/admin_bloc.dart';
 import '/models/place.dart';
 import '/pages/comments.dart';
-import '/pages/update_place.dart';
+//import '/pages/update_place.dart';
 import '/utils/cached_image.dart';
 import '/utils/dialog.dart';
 import '/utils/next_screen.dart';
@@ -144,7 +144,9 @@ class _PlacesPageState extends State<PlacesPage>{
                 style: ButtonStyle(
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25)))),
+                            borderRadius: BorderRadius.circular(25))),
+                    backgroundColor: MaterialStateProperty.all(Colors.purpleAccent)
+                            ),
                 child: Text(
                   'Yes',
                   style: TextStyle(
@@ -154,17 +156,14 @@ class _PlacesPageState extends State<PlacesPage>{
                 ),
                 onPressed: ()async{
                   
-                  if (ab.userType == 'tester') {
-                    Navigator.pop(context);
-                    openDialog(context, 'You are a Tester', 'Only admin can delete contents');
-                  } else {
+                  
                     await ab.deleteContent(timestamp, collectionName)
                     .then((value) => ab.decreaseCount('places_count'));
                     refreshData();
                     Navigator.pop(context);
                     
 
-                  }
+                
                 },
               ),
 
@@ -174,7 +173,11 @@ class _PlacesPageState extends State<PlacesPage>{
                 style: ButtonStyle(
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25)))),
+                            borderRadius: BorderRadius.circular(25)),
+                      
+                            ),
+                            backgroundColor: MaterialStateProperty.all(Colors.red)
+                            ),
                 child: Text(
                   'No',
                   style: TextStyle(
@@ -232,7 +235,8 @@ class _PlacesPageState extends State<PlacesPage>{
                     style: ButtonStyle(
                         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(25)))),
+                                borderRadius: BorderRadius.circular(25))),
+                                backgroundColor: MaterialStateProperty.all(Colors.purpleAccent)),
                     child: Text(
                       'Yes',
                       style: TextStyle(
@@ -241,13 +245,11 @@ class _PlacesPageState extends State<PlacesPage>{
                           fontWeight: FontWeight.w600),
                     ),
                     onPressed: () async {
-                      if (ab.userType == 'tester') {
-                        Navigator.pop(context);
-                        openDialog(context, 'You are a Tester', 'Only admin can do this');
-                      } else {
+                      
+                      
                         await context.read<AdminBloc>().addToFeaturedList(context, timestamp);
                         Navigator.pop(context);
-                      }
+                      
                     },
                   ),
                   SizedBox(width: 10),
@@ -255,7 +257,8 @@ class _PlacesPageState extends State<PlacesPage>{
                     style: ButtonStyle(
                         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(25)))),
+                                borderRadius: BorderRadius.circular(25)),),
+                                backgroundColor: MaterialStateProperty.all(Colors.red)),
                     child: Text(
                       'No',
                       style: TextStyle(
@@ -473,7 +476,7 @@ class _PlacesPageState extends State<PlacesPage>{
                             child: Icon(Icons.edit,
                                 size: 16, color: Colors.grey[800])),
                         onTap: () {
-                          nextScreen(context, UpdatePlace(placeData: d));
+                          //nextScreen(context, UpdatePlace(placeData: d));
                         },
                       ),
                       SizedBox(width: 10),

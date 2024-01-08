@@ -1,7 +1,7 @@
 import '/blocs/admin_bloc.dart';
 import '/models/place.dart';
 import '/pages/comments.dart';
-import '/pages/update_place.dart';
+//import '/pages/update_place.dart';
 import '/utils/cached_image.dart';
 import '/utils/dialog.dart';
 import '/utils/next_screen.dart';
@@ -22,7 +22,7 @@ class _FeaturedPlacesState extends State<FeaturedPlaces> {
 
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
   late bool _isLoading;
-  List<DocumentSnapshot> _snap = List<DocumentSnapshot>.empty(growable: true);
+  final List<DocumentSnapshot> _snap = [];
   List<Place> _data = [];
   final scaffoldKey = GlobalKey<ScaffoldState>();
   String collectionName = 'places';
@@ -37,25 +37,26 @@ class _FeaturedPlacesState extends State<FeaturedPlaces> {
 
   
 
-  Future<Null> _getData() async {
+  Future<void> _getData() async {
     await context.read<AdminBloc>().getFeaturedList()
     .then((featuredList) async {
       QuerySnapshot data;
-    if (_lastVisible == null)
+    if (_lastVisible == null) {
       data = await firestore
           .collection(collectionName)
           .where('timestamp', whereIn: featuredList)
           .limit(10)
           .get();
-    else
+    } else {
       data = await firestore
           .collection(collectionName)
           .where('timestamp', whereIn: featuredList)
           .startAfter([_lastVisible!['timestamp']])
           .limit(10)
           .get();
+    }
 
-    if (data != null && data.docs.length > 0) {
+    if (data.docs.length > 0) {
       _lastVisible = data.docs[data.docs.length - 1];
       if (mounted) {
         setState(() {
@@ -365,7 +366,7 @@ class _FeaturedPlacesState extends State<FeaturedPlaces> {
                             child: Icon(Icons.edit,
                                 size: 16, color: Colors.grey[800])),
                         onTap: () {
-                          nextScreen(context, UpdatePlace(placeData: d));
+                          //nextScreen(context, UpdatePlace(placeData: d));
                         },
                       ),
                       SizedBox(width: 10),

@@ -25,9 +25,9 @@ class _NotificationsState extends State<Notifications> {
 
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
   late ScrollController controller;
-  DocumentSnapshot? _lastVisible;
+  late DocumentSnapshot _lastVisible;
   late bool _isLoading;
-  List<DocumentSnapshot> _snap = List<DocumentSnapshot>.empty(growable: true);
+  final List<DocumentSnapshot> _snap = [];
   List<NotificationModel> _data = [];
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final collectionName = 'notifications';
@@ -92,7 +92,7 @@ class _NotificationsState extends State<Notifications> {
     setState(() {
       _data.clear();
       _snap.clear();
-      _lastVisible = null;
+      _lastVisible = _lastVisible;
     });
     _getData();
   }
