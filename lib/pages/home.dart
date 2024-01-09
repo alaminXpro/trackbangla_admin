@@ -6,7 +6,7 @@ import '/pages/admin.dart';
 import '/pages/blogs.dart';
 import '/pages/data_info.dart';
 import '/pages/featured.dart';
-//import '/pages/notifications.dart';
+import '/pages/notifications.dart';
  import '/pages/places.dart';
 //import '/pages/settings.dart';
 import '/pages/sign_in.dart';
@@ -214,7 +214,7 @@ class _HomePageState extends State<HomePage>
                     Tab(child: tab(titles[4], icons[4])),
                      //Tab(child: tab(titles[5], icons[5])),
                      Tab(child: tab(titles[6], icons[6])),
-                     //Tab(child: tab(titles[7], icons[7])),
+                     Tab(child: tab(titles[7], icons[7])),
                      Tab(child: tab(titles[8], icons[8])),
                     Tab(child: tab(titles[9], icons[9])),
                     //Tab(child: tab(titles[10], icons[10])),
@@ -227,7 +227,7 @@ class _HomePageState extends State<HomePage>
                     CoverWidget(widget: BlogPage()),
                      //CoverWidget(widget: UploadBlog()),
                      CoverWidget(widget: States()),
-                     //CoverWidget(widget: Notifications()),
+                     CoverWidget(widget: Notifications()),
                      CoverWidget(widget: UsersPage()),
                     CoverWidget(widget: AdminPage()),
                     //CoverWidget(widget: Settings())

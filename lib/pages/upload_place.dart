@@ -116,12 +116,6 @@ class _UploadPlaceState extends State<UploadPlace> {
     
   }
 
-
-
-
-
-
-
   Future getDate() async {
     DateTime now = DateTime.now();
     String _d = DateFormat('dd MMMM yy').format(now);
