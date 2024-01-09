@@ -47,6 +47,7 @@ dependencies:
   toast: ^0.3.0
   url_launcher: ^6.2.2
   vertical_tabs_flutter: ^1.0.0
+  #flutter_math_fork: ^0.5.0
 
 dev_dependencies:
   flutter_test:

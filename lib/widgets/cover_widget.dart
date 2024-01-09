@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CoverWidget extends StatelessWidget {
+  // ignore: prefer_typing_uninitialized_variables
   final widget;
-  const CoverWidget({Key? key, @required this.widget}) : super(key: key);
+  const CoverWidget({Key? key, required this.widget}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

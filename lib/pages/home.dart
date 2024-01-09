@@ -2,18 +2,18 @@ import 'package:flutter/foundation.dart';
 
 import '/blocs/admin_bloc.dart';
 import '/config/config.dart';
-// import '/pages/admin.dart';
-// import '/pages/blogs.dart';
-// import '/pages/data_info.dart';
-// import '/pages/featured.dart';
-// import '/pages/notifications.dart';
-// import '/pages/places.dart';
-// import '/pages/settings.dart';
+import '/pages/admin.dart';
+import '/pages/blogs.dart';
+import '/pages/data_info.dart';
+import '/pages/featured.dart';
+import '/pages/notifications.dart';
+ import '/pages/places.dart';
+//import '/pages/settings.dart';
 import '/pages/sign_in.dart';
-// import '/pages/states.dart';
+ import '/pages/states.dart';
 // import '/pages/upload_blog.dart';
-// import '/pages/upload_place.dart';
-// import '/pages/users.dart';
+//import '/pages/upload_place.dart';
+ import '/pages/users.dart';
 import '/utils/next_screen.dart';
 import '/widgets/cover_widget.dart';
 import 'package:flutter/material.dart';
@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage>
     super.initState();
     Future.delayed(Duration(milliseconds: 0)).then((value) {
       context.read<AdminBloc>().getStates();
-      context.read<AdminBloc>().getAdsData();
+      //context.read<AdminBloc>().getAdsData();
     });
   }
 
@@ -208,30 +208,29 @@ class _HomePageState extends State<HomePage>
                   },
                   tabs: <Tab>[
                     Tab(child: tab(titles[0], icons[0])),
-                    // Tab(child: tab(titles[1], icons[1])),
-                    // Tab(child: tab(titles[2], icons[2])),
-                    // Tab(child: tab(titles[3], icons[3])),
-                    // Tab(child: tab(titles[4], icons[4])),
-                    // Tab(child: tab(titles[5], icons[5])),
-                    // Tab(child: tab(titles[6], icons[6])),
-                    // Tab(child: tab(titles[7], icons[7])),
-                    // Tab(child: tab(titles[8], icons[8])),
-                    // Tab(child: tab(titles[9], icons[9])),
-                    // Tab(child: tab(titles[10], icons[10])),
+                    Tab(child: tab(titles[1], icons[1])),
+                    Tab(child: tab(titles[2], icons[2])),
+                    //Tab(child: tab(titles[3], icons[3])),
+                    Tab(child: tab(titles[4], icons[4])),
+                     //Tab(child: tab(titles[5], icons[5])),
+                     Tab(child: tab(titles[6], icons[6])),
+                     Tab(child: tab(titles[7], icons[7])),
+                     Tab(child: tab(titles[8], icons[8])),
+                    Tab(child: tab(titles[9], icons[9])),
+                    //Tab(child: tab(titles[10], icons[10])),
                   ],
                   contents: <Widget>[
-                    Text("Dashboard"),
-                    // DataInfoPage(),
-                    // CoverWidget(widget: PlacesPage()),
-                    // CoverWidget(widget: FeaturedPlaces()),
-                    // CoverWidget(widget: UploadPlace()),
-                    // CoverWidget(widget: BlogPage()),
-                    // CoverWidget(widget: UploadBlog()),
-                    // CoverWidget(widget: States()),
-                    // CoverWidget(widget: Notifications()),
-                    // CoverWidget(widget: UsersPage()),
-                    // CoverWidget(widget: AdminPage()),
-                    // CoverWidget(widget: Settings())
+                    DataInfoPage(),
+                    CoverWidget(widget: PlacesPage()),
+                    CoverWidget(widget: FeaturedPlaces()),
+                    //CoverWidget(widget: UploadPlace()),
+                    CoverWidget(widget: BlogPage()),
+                     //CoverWidget(widget: UploadBlog()),
+                     CoverWidget(widget: States()),
+                     CoverWidget(widget: Notifications()),
+                     CoverWidget(widget: UsersPage()),
+                    CoverWidget(widget: AdminPage()),
+                    //CoverWidget(widget: Settings())
                     
                   ],
                 )

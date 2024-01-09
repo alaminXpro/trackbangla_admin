@@ -8,29 +8,29 @@ class NotificationBloc extends ChangeNotifier {
   
 
   Future sendNotification (title, description) async{
-    await http.post(
-      'https://fcm.googleapis.com/fcm/send' as Uri,
-      headers: <String, String>{
-        'Content-Type': 'application/json',
-        'Authorization': 'key=${Config().serverToken}',
-      },
-      body: jsonEncode(
-        <String, dynamic>{
-          'notification': <String, dynamic>{
-            'body': description,
-            'title': title
-          },
-          'priority': 'normal',
-          'data': <String, dynamic>{
-            'click_action': 'FLUTTER_NOTIFICATION_CLICK',
-            'id': '1',
-            'status': 'done'
-          },
-          'to': "/topics/all",
+  await http.post(
+    Uri.parse('https://fcm.googleapis.com/fcm/send'),
+    headers: <String, String>{
+      'Content-Type': 'application/json',
+      'Authorization': 'key=${Config().serverToken}',
+    },
+    body: jsonEncode(
+      <String, dynamic>{
+        'notification': <String, dynamic>{
+          'body': description,
+          'title': title
         },
-      ),
-    );
-  }
+        'priority': 'normal',
+        'data': <String, dynamic>{
+          'click_action': 'FLUTTER_NOTIFICATION_CLICK',
+          'id': '1',
+          'status': 'done'
+        },
+        'to': "/topics/all",
+      },
+    ),
+  );
+}
 
 
 
