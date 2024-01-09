@@ -8,7 +8,7 @@ class Settings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AdminBloc ab = Provider.of<AdminBloc>(context, listen: false);
+    //final AdminBloc ab = Provider.of<AdminBloc>(context, listen: false);
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       SizedBox(
         height: MediaQuery.of(context).size.height * 0.05,
@@ -35,18 +35,17 @@ class Settings extends StatelessWidget {
             child: Icon(Icons.ad_units),
           ),
           title: Text('Ads'),
-          trailing: Switch(
-            value: context.watch<AdminBloc>().adsEnabled,
-            onChanged: (bool value) async {
-              if(ab.userType == 'tester'){
-                openDialog(context, 'You are a Tester', 'Only admin can control ads!');
-              }else{
-                await context.read<AdminBloc>().controllAds(value, context)
-                .then((value) => context.read<AdminBloc>().getAdsData());
-              }
+          // trailing: Switch(
+          //   value: context.watch<AdminBloc>().adsEnabled,
+          //   onChanged: (bool value) async {
               
-            },
-          )),
+          //       await context.read<AdminBloc>().controllAds(value, context)
+          //       .then((value) => context.read<AdminBloc>().getAdsData());
+              
+              
+          //   },
+          // )
+          ),
     ]);
   }
 }

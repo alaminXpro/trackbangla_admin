@@ -1,13 +1,10 @@
-
 import 'package:flutter/material.dart';
-import 'package:toast/toast.dart';
+import 'package:toast/toast.dart' as toast;
 
-//sort length
-void openToast(context, message){
-  Toast.show(message, textStyle: context, webTexColor: Colors.white, backgroundRadius: 20, duration: Toast.lengthShort);
-  }
+void openToast(BuildContext context, String message) {
+  toast.Toast.show(message, textStyle: context, duration: toast.Toast.lengthShort, gravity: toast.Toast.bottom);
+}
 
-//long length
-void openToast1(context, message){
-  Toast.show(message, textStyle: context, webTexColor: Colors.white, backgroundRadius: 20, duration: Toast.lengthLong);
-  }
+void openToast1(BuildContext context, String message) {
+  toast.Toast.show(message, textStyle: context, duration: toast.Toast.lengthLong, gravity: toast.Toast.bottom);
+}

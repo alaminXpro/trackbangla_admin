@@ -23,7 +23,7 @@ class _AdminPageState extends State<AdminPage> {
   Future handleChange () async{
     final ab = context.read<AdminBloc>();
     if(ab.userType == 'tester'){
-      openDialog(context, 'You are a Tester', 'Only Admin can upload, delete & modify contents');
+      //openDialog(context, 'You are a Tester', 'Only Admin can upload, delete & modify contents');
     }else
     {
       if(formKey.currentState!.validate()){
@@ -31,8 +31,8 @@ class _AdminPageState extends State<AdminPage> {
       setState(() {
         changeStarted = true;
       });
-      await context.read<AdminBloc>().saveNewAdminPassword(passwordNewCtrl.text)
-      .then((value) => openDialog(context, 'Password has changed successfully!', ''));
+      await context.read<AdminBloc>().saveNewAdminPassword(passwordNewCtrl.text);
+      // .then((value) => openDialog(context, 'Password has changed successfully!', ''));
       setState(() {
         changeStarted = false;
       });

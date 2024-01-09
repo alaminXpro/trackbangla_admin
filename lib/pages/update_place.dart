@@ -1,9 +1,9 @@
 import '/blocs/admin_bloc.dart';
 import '/models/place.dart';
-import '/utils/dialog.dart';
+//import '/utils/dialog.dart';
 import '/utils/snacbar.dart';
 import '/utils/styles.dart';
-import '/utils/toast.dart';
+//import '/utils/toast.dart';
 import '/widgets/cover_widget.dart';
 import '/widgets/place_preview.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -85,20 +85,20 @@ class _UpdatePlaceState extends State<UpdatePlace> {
   void handleSubmit() async {
     final AdminBloc ab = Provider.of<AdminBloc>(context, listen: false);
     if(stateSelection == null){
-      openDialog(context, 'Select City First', '');
+      //openDialog(context, 'Select City First', '');
     }else{
       if (formKey.currentState!.validate()) {
       formKey.currentState!.save();
-      if(paths.length == 0){
-        openSnacbar(scaffoldKey, 'Paths List can not be empty');
+      if(paths.isEmpty){
+        //openSnacbar(scaffoldKey, 'Paths List can not be empty');
       } else {
         if (ab.userType == 'tester') {
-        openDialog(context, 'You are a Tester', 'Only Admin can upload, delete & modify contents');
+        //openDialog(context, 'You are a Tester', 'Only Admin can upload, delete & modify contents');
       } else {
         setState(()=> uploadStarted = true);
         await saveToDatabase();
         setState(()=> uploadStarted = false);
-        openDialog(context, 'Updated Successfully', '');
+        //openDialog(context, 'Updated Successfully', '');
         //clearFields();
       }
       }
@@ -217,7 +217,7 @@ class _UpdatePlaceState extends State<UpdatePlace> {
           paths
         );
       }else{
-        openToast(context, 'Path List is Empty!');
+        //openToast(context, 'Path List is Empty!');
       }
     }
   }
@@ -240,7 +240,7 @@ class _UpdatePlaceState extends State<UpdatePlace> {
                   fontSize: 30, fontWeight: FontWeight.w800
                 ),),
                 SizedBox(height: 20,),
-                statesDropdown(),
+                //statesDropdown(),
                 SizedBox(height: 20,),
                 TextFormField(
                   decoration: inputDecoration('Enter place name', 'Place name', nameCtrl),
@@ -485,7 +485,7 @@ class _UpdatePlaceState extends State<UpdatePlace> {
                     controller: pathsCtrl,
                     
                     onFieldSubmitted: (String value) {
-                      if(value.length == 0){
+                      if(value.isEmpty){
                         setState(() {
                         _helperText = "You can't put empty item is the list";
                           
@@ -504,7 +504,7 @@ class _UpdatePlaceState extends State<UpdatePlace> {
                 SizedBox(height: 20,),
                 Container(
                   
-                  child: paths.length == 0 ? Center(child: Text('No path list were added'),) :
+                  child: paths.isEmpty ? Center(child: Text('No path list were added'),) :
                   
                   ListView.builder(
                         shrinkWrap: true,
@@ -547,7 +547,7 @@ class _UpdatePlaceState extends State<UpdatePlace> {
                               color: Colors.black
                             ),),
                             onPressed: (){
-                              handlePreview();
+                              //handlePreview();
                             }
                           )
                         ],
@@ -569,7 +569,7 @@ class _UpdatePlaceState extends State<UpdatePlace> {
                                 fontWeight: FontWeight.w600),
                           ),
                           onPressed: () async{
-                            handleSubmit();
+                            //handleSubmit();
                             
                           })
                         
@@ -619,8 +619,8 @@ class _UpdatePlaceState extends State<UpdatePlace> {
             hint: Text('Select State'),
             items: ab.states.map((f) {
               return DropdownMenuItem(
-                child: Text(f),
                 value: f,
+                child: Text(f),
               );
             }).toList()));
   }

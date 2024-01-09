@@ -1,12 +1,12 @@
 import '/blocs/admin_bloc.dart';
 import '/models/blog.dart';
 import '/pages/comments.dart';
-import '/pages/update_blog.dart';
+//import '/pages/update_blog.dart';
 import '/utils/cached_image.dart';
 import '/utils/dialog.dart';
 import '/utils/next_screen.dart';
 import '/utils/toast.dart';
-import '/widgets/blog_preview.dart';
+//import '/widgets/blog_preview.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -36,23 +36,24 @@ class _BlogPageState extends State<BlogPage> {
     _getData();
   }
 
-  Future<Null> _getData() async {
+  Future<void> _getData() async {
     QuerySnapshot data;
-    if (_lastVisible == null)
+    if (_lastVisible == null) {
       data = await firestore
           .collection(collectionName)
           .orderBy('timestamp', descending: true)
           .limit(10)
           .get();
-    else
+    } else {
       data = await firestore
           .collection(collectionName)
           .orderBy('timestamp', descending: true)
           .startAfter([_lastVisible!['timestamp']])
           .limit(10)
           .get();
+    }
 
-    if (data != null && data.docs.length > 0) {
+    if (data.docs.isNotEmpty) {
       _lastVisible = data.docs[data.docs.length - 1];
       if (mounted) {
         setState(() {
@@ -63,9 +64,9 @@ class _BlogPageState extends State<BlogPage> {
       }
     } else {
       setState(() => _isLoading = false);
-      openToast(context, 'No more content available');
+      //openToast(context, 'No more content available');
     }
-    return null;
+    return;
   }
 
   @override
@@ -95,7 +96,7 @@ class _BlogPageState extends State<BlogPage> {
 
 
   handlePreview(Blog d) async {
-    await showBlogPreview(context, d.title, d.description, d.thumbnailImagelUrl, d.loves, d.sourceUrl, d.date);
+    //await showBlogPreview(context, d.title, d.description, d.thumbnailImagelUrl, d.loves, d.sourceUrl, d.date);
   }
 
 
@@ -147,16 +148,13 @@ class _BlogPageState extends State<BlogPage> {
                                     borderRadius: BorderRadius.circular(25)))),
                     onPressed: () async {
                       //final context = ab.context;
-                      if (ab.userType == 'tester') {
-                        Navigator.pop(context);
-                        openDialog(context, 'You are a Tester','Only admin can delete contents');
-                      } else {
+                      
                         await ab.deleteContent(timestamp, 'blogs')
-                        .then((value) => ab.decreaseCount('blogs_count'))
-                        .then((value) => openToast1(context, 'Item deleted successfully!'));
+                        .then((value) => ab.decreaseCount('blogs_count'));
+                        //.then((value) => openToast1(context, 'Item deleted successfully!'));
                         reloadData();
                         Navigator.pop(context);
-                      }
+                      
                       
                     },
                     child: const Text(
@@ -373,7 +371,7 @@ class _BlogPageState extends State<BlogPage> {
                             child: Icon(Icons.edit,
                                 size: 16, color: Colors.grey[800])),
                         onTap: () {
-                          nextScreen(context, UpdateBlog(blogData: d));
+                          //nextScreen(context, UpdateBlog(blogData: d));
                         },
                       ),
                       SizedBox(width: 10),

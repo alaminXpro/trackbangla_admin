@@ -39,24 +39,25 @@ class _CitiesPageState extends State<States> {
 
 
 
-  Future<Null> _getData() async {
+  Future<void> _getData() async {
     QuerySnapshot data;
-    if (_lastVisible == null)
+    if (_lastVisible == null) {
       data = await firestore
           .collection(collectionName)
           .orderBy('timestamp', descending: true)
           .limit(10)
           .get();
-    else
+    } else {
       data = await firestore
           .collection(collectionName)
           .orderBy('timestamp', descending: true)
           .startAfter([_lastVisible!['timestamp']])
-          .limit(10)
+          .limit(15)
           .get();
+    }
 
-    if (data != null && data.docs.length > 0) {
-      _lastVisible = data.docs[data.docs.length - 1];
+    if (data.docs.isNotEmpty) {
+      _lastVisible = data.docs.last;
       if (mounted) {
         setState(() {
           _isLoading = false;
@@ -66,9 +67,9 @@ class _CitiesPageState extends State<States> {
       }
     } else {
       setState(() => _isLoading = false);
-      openToast(context, 'No more contents available!');
+      //openToast(context, 'No more contents available!');
     }
-    return null;
+    return;
   }
 
   @override
@@ -352,7 +353,7 @@ class _CitiesPageState extends State<States> {
         await getTimestamp()
         .then((value) => addState())
         .then((value) => context.read<AdminBloc>().increaseCount('states_count'))
-        .then((value) => openToast1(context, 'Added Successfully'))
+        // .then((value) => openToast1(context, 'Added Successfully'))
         .then((value) => ab.getStates());
         refreshData();
         Navigator.pop(context);

@@ -56,7 +56,7 @@ class _FeaturedPlacesState extends State<FeaturedPlaces> {
           .get();
     }
 
-    if (data.docs.length > 0) {
+    if (data.docs.isNotEmpty) {
       _lastVisible = data.docs[data.docs.length - 1];
       if (mounted) {
         setState(() {
@@ -67,7 +67,7 @@ class _FeaturedPlacesState extends State<FeaturedPlaces> {
       }
     } else {
       setState(() => _isLoading = false);
-      openToast(context, 'No more content available');
+      //openToast(context, 'No more content available');
     }
     return null;
 
@@ -138,7 +138,10 @@ class _FeaturedPlacesState extends State<FeaturedPlaces> {
                         shape:
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(25)))),
+                                    borderRadius: BorderRadius.circular(25))),
+                                    
+                                    backgroundColor: MaterialStateProperty.all(Colors.purpleAccent)
+                                    ),
                     child: Text(
                       'Yes',
                       style: TextStyle(
@@ -163,7 +166,8 @@ class _FeaturedPlacesState extends State<FeaturedPlaces> {
                         shape:
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(25)))),
+                                    borderRadius: BorderRadius.circular(25))),
+                                    backgroundColor: MaterialStateProperty.all(Colors.red)),
                     child: Text(
                       'No',
                       style: TextStyle(

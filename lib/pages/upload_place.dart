@@ -96,14 +96,14 @@ class _UploadPlaceState extends State<UploadPlace> {
         openSnacbar(scaffoldKey, 'Paths List can not be empty');
       } else {
         if (ab.userType == 'tester') {
-        openDialog(context, 'You are a Tester', 'Only Admin can upload, delete & modify contents');
+        //openDialog(context, 'You are a Tester', 'Only Admin can upload, delete & modify contents');
       } else {
         setState(()=> uploadStarted = true);
         await getDate().then((_) async{
           await saveToDatabase()
           .then((value) => context.read<AdminBloc>().increaseCount('places_count'));
           setState(()=> uploadStarted = false);
-          openDialog(context, 'Uploaded Successfully', '');
+          //openDialog(context, 'Uploaded Successfully', '');
           clearFields();
           
           
@@ -198,7 +198,7 @@ class _UploadPlaceState extends State<UploadPlace> {
           paths
         );
       }else{
-        openToast(context, 'Path List is Empty!');
+        //openToast(context, 'Path List is Empty!');
       }
     }
   }
@@ -218,7 +218,7 @@ class _UploadPlaceState extends State<UploadPlace> {
                 fontSize: 30, fontWeight: FontWeight.w800
               ),),
               SizedBox(height: 20,),
-              statesDropdown(),
+              //statesDropdown(),
               SizedBox(height: 20,),
               TextFormField(
                 decoration: inputDecoration('Enter place name', 'Place name', nameCtrl),
@@ -463,7 +463,7 @@ class _UploadPlaceState extends State<UploadPlace> {
                   controller: pathsCtrl,
                   
                   onFieldSubmitted: (String value) {
-                    if(value.length == 0){
+                    if(value.isEmpty){
                       setState(() {
                       _helperText = "You can't put empty item is the list";
                         
@@ -482,7 +482,7 @@ class _UploadPlaceState extends State<UploadPlace> {
               SizedBox(height: 20,),
               Container(
                 
-                child: paths.length == 0 ? Center(child: Text('No path list were added'),) :
+                child: paths.isEmpty ? Center(child: Text('No path list were added'),) :
                 
                 ListView.builder(
                       shrinkWrap: true,
@@ -525,7 +525,7 @@ class _UploadPlaceState extends State<UploadPlace> {
                             color: Colors.black
                           ),),
                           onPressed: (){
-                            handlePreview();
+                            //handlePreview();
                           }
                         )
                       ],
@@ -547,7 +547,7 @@ class _UploadPlaceState extends State<UploadPlace> {
                               fontWeight: FontWeight.w600),
                         ),
                         onPressed: () async{
-                          handleSubmit();
+                          //handleSubmit();
                           
                         })
                       
@@ -579,7 +579,7 @@ class _UploadPlaceState extends State<UploadPlace> {
             style: TextStyle(
                 fontSize: 14,
                 color: Colors.grey[800],
-                fontFamily: 'Poppins',
+                //fontFamily: 'Poppins',
                 fontWeight: FontWeight.w500),
             decoration: InputDecoration(border: InputBorder.none),
             onChanged: (value) {
@@ -596,8 +596,8 @@ class _UploadPlaceState extends State<UploadPlace> {
             hint: Text('Select State'),
             items: ab.states.map((f) {
               return DropdownMenuItem(
-                child: Text(f),
                 value: f,
+                child: Text(f),
               );
             }).toList()));
   }
