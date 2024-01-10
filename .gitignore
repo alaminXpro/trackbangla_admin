@@ -41,3 +41,10 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+firebase_options.dart
+firebase.json
+.firebaserc
+.github/workflows/firebase-hosting-pull-request.yml
+.github/workflows/firebase-hosting-merge.yml
+.firebase/hosting.YnVpbGQvd2Vi.cache
+.firebase/hosting.cHVibGlj.cache
