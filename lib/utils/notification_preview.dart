@@ -43,19 +43,21 @@ showNotificationPreview(context, title, description) {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  // FlatButton(
-                  //       shape: RoundedRectangleBorder(
-                  //           borderRadius: BorderRadius.circular(25)),
-                  //       color: Colors.deepPurpleAccent,
-                  //       child: Text(
-                  //         'Close',
-                  //         style: TextStyle(
-                  //             color: Colors.white,
-                  //             fontSize: 16,
-                  //             fontWeight: FontWeight.w600),
-                  //       ),
-                  //       onPressed: () => Navigator.pop(context),
-                  //     ),
+                  TextButton(
+                        style: TextButton.styleFrom(
+                          backgroundColor: Colors.deepPurpleAccent,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5)),
+                        ),
+                        child: Text(
+                          'Close',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        onPressed: () => Navigator.pop(context),
+                      ),
                 ],
               ),
             ),
