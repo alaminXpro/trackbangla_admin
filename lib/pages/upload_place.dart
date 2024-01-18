@@ -1,9 +1,6 @@
 import '/blocs/admin_bloc.dart';
-import '/utils/dialog.dart';
-import '/utils/snacbar.dart';
 import '/utils/styles.dart';
-import '/utils/toast.dart';
-import '/widgets/place_preview.dart';
+//import '/widgets/place_preview.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -87,13 +84,13 @@ class _UploadPlaceState extends State<UploadPlace> {
     final AdminBloc ab = Provider.of<AdminBloc>(context, listen: false);
 
     if(stateSelection == null){
-      openDialog(context, 'Select State First', '');
+      //openDialog(context, 'Select State First', '');
     }
     else{
       if (formKey.currentState!.validate()) {
       formKey.currentState!.save();
       if(paths.isEmpty){
-        openSnacbar(scaffoldKey, 'Paths List can not be empty');
+        //openSnacbar(scaffoldKey, 'Paths List can not be empty');
       } else {
         if (ab.userType == 'tester') {
         //openDialog(context, 'You are a Tester', 'Only Admin can upload, delete & modify contents');
@@ -170,32 +167,32 @@ class _UploadPlaceState extends State<UploadPlace> {
 
 
 
-  handlePreview() async{
-    if (formKey.currentState!.validate()) {
-      formKey.currentState!.save();
-      if(paths.isNotEmpty){
-        showPlacePreview(
-          context, 
-          nameCtrl.text, 
-          locationCtrl.text, 
-          image1Ctrl.text, 
-          descriptionCtrl.text, 
-          double.parse(latCtrl.text), 
-          double.parse(lngCtrl.text), 
-          startpointNameCtrl.text, 
-          endpointNameCtrl.text, 
-          double.parse(startpointLatCtrl.text), 
-          double.parse(startpointLngCtrl.text),
-          double.parse(endpointLatCtrl.text),
-          double.parse(endpointLngCtrl.text),
-          priceCtrl.text,
-          paths
-        );
-      }else{
-        //openToast(context, 'Path List is Empty!');
-      }
-    }
-  }
+  // handlePreview() async{
+  //   if (formKey.currentState!.validate()) {
+  //     formKey.currentState!.save();
+  //     if(paths.isNotEmpty){
+  //       showPlacePreview(
+  //         context, 
+  //         nameCtrl.text, 
+  //         locationCtrl.text, 
+  //         image1Ctrl.text, 
+  //         descriptionCtrl.text, 
+  //         double.parse(latCtrl.text), 
+  //         double.parse(lngCtrl.text), 
+  //         startpointNameCtrl.text, 
+  //         endpointNameCtrl.text, 
+  //         double.parse(startpointLatCtrl.text), 
+  //         double.parse(startpointLngCtrl.text),
+  //         double.parse(endpointLatCtrl.text),
+  //         double.parse(endpointLngCtrl.text),
+  //         priceCtrl.text,
+  //         paths
+  //       );
+  //     }else{
+  //       //openToast(context, 'Path List is Empty!');
+  //     }
+  //   }
+  // }
 
 
 
@@ -212,7 +209,7 @@ class _UploadPlaceState extends State<UploadPlace> {
                 fontSize: 30, fontWeight: FontWeight.w800
               ),),
               SizedBox(height: 20,),
-              //statesDropdown(),
+              statesDropdown(),
               SizedBox(height: 20,),
               TextFormField(
                 decoration: inputDecoration('Enter place name', 'Place name', nameCtrl),
@@ -541,7 +538,7 @@ class _UploadPlaceState extends State<UploadPlace> {
                               fontWeight: FontWeight.w600),
                         ),
                         onPressed: () async{
-                          //handleSubmit();
+                          handleSubmit();
                           
                         })
                       

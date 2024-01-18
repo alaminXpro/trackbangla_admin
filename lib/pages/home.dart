@@ -12,8 +12,8 @@ import '/pages/notifications.dart';
 import '/pages/sign_in.dart';
  import '/pages/states.dart';
 // import '/pages/upload_blog.dart';
-//import '/pages/upload_place.dart';
- import '/pages/users.dart';
+import '/pages/upload_place.dart';
+import '/pages/users.dart';
 import '/utils/next_screen.dart';
 import '/widgets/cover_widget.dart';
 import 'package:flutter/material.dart';
@@ -210,7 +210,7 @@ class _HomePageState extends State<HomePage>
                     Tab(child: tab(titles[0], icons[0])),
                     Tab(child: tab(titles[1], icons[1])),
                     Tab(child: tab(titles[2], icons[2])),
-                    //Tab(child: tab(titles[3], icons[3])),
+                    Tab(child: tab(titles[3], icons[3])),
                     Tab(child: tab(titles[4], icons[4])),
                      //Tab(child: tab(titles[5], icons[5])),
                      Tab(child: tab(titles[6], icons[6])),
@@ -223,7 +223,7 @@ class _HomePageState extends State<HomePage>
                     DataInfoPage(),
                     CoverWidget(widget: PlacesPage()),
                     CoverWidget(widget: FeaturedPlaces()),
-                    //CoverWidget(widget: UploadPlace()),
+                    CoverWidget(widget: UploadPlace()),
                     CoverWidget(widget: BlogPage()),
                      //CoverWidget(widget: UploadBlog()),
                      CoverWidget(widget: States()),
