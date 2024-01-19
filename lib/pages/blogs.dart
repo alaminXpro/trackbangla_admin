@@ -262,7 +262,7 @@ class _BlogPageState extends State<BlogPage> {
                 color: Colors.grey[300],
                 borderRadius: BorderRadius.circular(10),
             ),
-              child: CustomCacheImage(imageUrl: d.thumbnailImagelUrl, radius: 10,),
+              child: CustomCacheImage(imageUrl: d.thumbUrl, radius: 10,),
           ),
           Flexible(
             child: Padding(

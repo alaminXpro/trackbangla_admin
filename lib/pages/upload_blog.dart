@@ -1,8 +1,8 @@
 
 import '/blocs/admin_bloc.dart';
-import '/utils/dialog.dart';
+//import '/utils/dialog.dart';
 import '/utils/styles.dart';
-import '/widgets/blog_preview.dart';
+//import '/widgets/blog_preview.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -41,14 +41,14 @@ class _UploadBlogState extends State<UploadBlog> {
       if (formKey.currentState!.validate()) {
       formKey.currentState!.save();
       if (ab.userType == 'tester') {
-        openDialog(context, 'You are a Tester', 'Only Admin can upload, delete & modify contents');
+        //openDialog(context, 'You are a Tester', 'Only Admin can upload, delete & modify contents');
       } else {
         setState(()=> uploadStarted = true);
         await getDate().then((_) async{
           await saveToDatabase()
           .then((value) => context.read<AdminBloc>().increaseCount('blogs_count'));
           setState(()=> uploadStarted = false);
-          openDialog(context, 'Uploaded Successfully', '');
+          //openDialog(context, 'Uploaded Successfully', '');
           clearTextFeilds();
           
           
@@ -108,7 +108,7 @@ class _UploadBlogState extends State<UploadBlog> {
     if (formKey.currentState!.validate()) {
       formKey.currentState!.save();
       await getDate().then((_) async{
-        await showBlogPreview(context, titleCtrl.text, descriptionCtrl.text, imageUrlCtrl.text, 0, sourceCtrl.text, 'Now');
+        //await showBlogPreview(context, titleCtrl.text, descriptionCtrl.text, imageUrlCtrl.text, 0, sourceCtrl.text, 'Now');
 
       });
     }
@@ -221,7 +221,7 @@ class _UploadBlogState extends State<UploadBlog> {
                             color: Colors.black
                           ),),
                           onPressed: (){
-                            handlePreview();
+                            //handlePreview();
                           }
                         )
                       ],

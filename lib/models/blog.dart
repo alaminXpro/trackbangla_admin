@@ -5,7 +5,7 @@ class Blog {
 
   String title;
   String description;
-  String thumbnailImagelUrl;
+  String thumbUrl;
   int loves;
   String sourceUrl;
   String date;
@@ -15,13 +15,11 @@ class Blog {
 
     required this.title,
     required this.description,
-    required this.thumbnailImagelUrl,
+    required this.thumbUrl,
     required this.loves,
     required this.sourceUrl,
     required this.date,
     required this.timestamp,
-    required thumbnailImageUrl
-
   });
 
   factory Blog.fromFirestore(DocumentSnapshot snapshot) {
@@ -29,11 +27,11 @@ class Blog {
     return Blog(
       title: d['title'] ?? '',
       description: d['description'] ?? '',
-      thumbnailImageUrl: d['image url'] ?? '',
+      thumbUrl: d['image url'] ?? '',
       loves: d['loves'] ?? 0,
       sourceUrl: d['source'] ?? '',
       date: d['date'] ?? '',
-      timestamp: d['timestamp'] ?? Timestamp.now(), thumbnailImagelUrl: '',
+      timestamp: d['timestamp'] ?? Timestamp.now(),
     );
   }
 }
