@@ -92,7 +92,7 @@ class _UpdateBlogState extends State<UpdateBlog> {
     Blog d = widget.blogData;
     titleCtrl.text = d.title;
     descriptionCtrl.text = d.description;
-    imageUrlCtrl.text = d.thumbnailImagelUrl;
+    imageUrlCtrl.text = d.thumbUrl;
     sourceCtrl.text = d.sourceUrl;
   }
 
