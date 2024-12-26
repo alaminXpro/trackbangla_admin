@@ -1,16 +1,15 @@
-# trackbangla_admin
+# TrackBangla Admin Panel  
 
-A new Flutter project.
+The **TrackBangla Admin Panel** is a powerful management tool for the TrackBangla travel app. It enables administrators to seamlessly manage app content, users, and notifications through an intuitive interface.  
 
-## Getting Started
+## Features  
 
-This project is a starting point for a Flutter application.
+- **Database Management**: Add, update, and delete app data directly from the admin panel.  
+- **User Management**: View and manage all registered users.  
+- **Push Notifications**: Send announcements and updates to all app users.  
+- **Content Oversight**: Maintain and curate travel destinations, blogs, and other app content.  
 
-A few resources to get you started if this is your first Flutter project:
+## Tech Stack  
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **Framework**: Flutter  
+- **Cloud Backend**: Firebase 
